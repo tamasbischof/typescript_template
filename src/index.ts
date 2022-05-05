@@ -1,7 +1,3 @@
-import { ConcreteTemperatureService } from "./decorator/ConcreteTemperatureService";
-import { Forecast } from "./decorator/Forecast";
-import { RetryTemperatureService } from "./decorator/RetryTemperatureService";
+import { Rectangle } from "./flyweight/Rectangle";
 
-console.log(
-    new Forecast(new RetryTemperatureService(new ConcreteTemperatureService())).getForecast("Budapest")
-);
+console.log(Rectangle.getInstance(10, 20) === Rectangle.getInstance(10,20));
