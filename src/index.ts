@@ -1,13 +1,7 @@
-import { Category } from "./adapter/Category";
-import { CategoryMenuItemAdapter } from "./adapter/CategoryMenuItemAdapter";
-import { MenuDisplay } from "./adapter/MenuDisplay";
+import { ConcreteTemperatureService } from "./decorator/ConcreteTemperatureService";
+import { Forecast } from "./decorator/Forecast";
+import { RetryTemperatureService } from "./decorator/RetryTemperatureService";
 
-const categories = [
-    new Category("monitorok"),
-    new Category("egerek"),
-    new Category("billentyüzetek")
-]
-
-const adapted = categories.map((c) => new CategoryMenuItemAdapter(c));
-
-new MenuDisplay().print(adapted);
+console.log(
+    new Forecast(new RetryTemperatureService(new ConcreteTemperatureService())).getForecast("Budapest")
+);
