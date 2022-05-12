@@ -13,6 +13,7 @@ describe('Prototype tests', () => {
             MailContent.getCopy(original.mailContent)
         );
 
+        expect(copy.to).to.be.not.equal(original.to);
         expect(copy.mailContent).to.be.not.equal(original.mailContent);
     });
 });
